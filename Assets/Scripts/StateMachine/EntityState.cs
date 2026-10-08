@@ -30,7 +30,10 @@ public abstract class EntityState
   // 所有状态计时器统一按“剩余秒数”递减；需要计时的状态在 Enter 中赋初值。
   public virtual void Update()
   {
-   stateTimer -= Time.deltaTime; 
+   stateTimer -= Time.deltaTime;
+   // 【统一动画入口】计时后通过虚方法分派到 PlayerState 或 EnemyState 的参数同步实现。
+   // 子状态调用 base.Update 时会自动同步，无需再从自身 Update 重复调用。
+   UpdateAnimationParameters(); 
 
   }
 
@@ -45,5 +48,13 @@ public abstract class EntityState
   public void CallAnimationTrigger()
   {
     triggerCalled = true;
+  }
+
+  // 【动画参数扩展点】基类保持空实现，具体实体类型负责各自 Animator 参数，避免混用玩家/敌人参数。
+  // PlayerState 同步 yVelocity；EnemyState 同步战斗/巡逻动画倍率和 xVelocity。
+  // 本方法由上方 Update 自动调用；子类重写时保留 base 调用，便于未来添加公共参数。
+  public virtual void UpdateAnimationParameters()
+  {
+    
   }
 }

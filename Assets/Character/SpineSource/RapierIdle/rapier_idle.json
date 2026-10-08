@@ -1,0 +1,614 @@
+{
+  "skeleton": {
+    "hash": "",
+    "spine": "3.8.99",
+    "x": -360,
+    "y": -40,
+    "width": 720,
+    "height": 700
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "pelvis",
+      "parent": "root",
+      "y": 245
+    },
+    {
+      "name": "torso",
+      "parent": "pelvis",
+      "y": 112,
+      "length": 115
+    },
+    {
+      "name": "neck",
+      "parent": "torso",
+      "y": 112,
+      "length": 55
+    },
+    {
+      "name": "head",
+      "parent": "neck",
+      "x": -8,
+      "y": 50,
+      "length": 75
+    },
+    {
+      "name": "hair",
+      "parent": "head",
+      "length": 55
+    },
+    {
+      "name": "leg_l",
+      "parent": "pelvis",
+      "x": -47,
+      "y": -22,
+      "rotation": -2,
+      "length": 190
+    },
+    {
+      "name": "foot_l",
+      "parent": "leg_l",
+      "y": -178,
+      "length": 55
+    },
+    {
+      "name": "leg_r",
+      "parent": "pelvis",
+      "x": 40,
+      "y": -20,
+      "rotation": 2,
+      "length": 190
+    },
+    {
+      "name": "foot_r",
+      "parent": "leg_r",
+      "y": -178,
+      "length": 55
+    },
+    {
+      "name": "upper_arm_l",
+      "parent": "torso",
+      "x": -76,
+      "y": 70,
+      "rotation": 8,
+      "length": 100
+    },
+    {
+      "name": "forearm_l",
+      "parent": "upper_arm_l",
+      "y": -105,
+      "rotation": -4,
+      "length": 95
+    },
+    {
+      "name": "hand_l",
+      "parent": "forearm_l",
+      "y": -95,
+      "length": 42
+    },
+    {
+      "name": "upper_arm_r",
+      "parent": "torso",
+      "x": 78,
+      "y": 70,
+      "rotation": -10,
+      "length": 100
+    },
+    {
+      "name": "forearm_r",
+      "parent": "upper_arm_r",
+      "y": -102,
+      "rotation": 8,
+      "length": 95
+    },
+    {
+      "name": "hand_r",
+      "parent": "forearm_r",
+      "y": -92,
+      "length": 42
+    },
+    {
+      "name": "weapon",
+      "parent": "hand_r",
+      "rotation": -67,
+      "length": 450
+    }
+  ],
+  "slots": [
+    {
+      "name": "rapier",
+      "bone": "weapon",
+      "attachment": "rapier_long"
+    },
+    {
+      "name": "hair_back",
+      "bone": "hair",
+      "attachment": "hair_back"
+    },
+    {
+      "name": "arm_l_upper",
+      "bone": "upper_arm_l",
+      "attachment": "upper_arm_l"
+    },
+    {
+      "name": "arm_l_fore",
+      "bone": "forearm_l",
+      "attachment": "forearm_l"
+    },
+    {
+      "name": "leg_l",
+      "bone": "leg_l",
+      "attachment": "boot_l"
+    },
+    {
+      "name": "leg_r",
+      "bone": "leg_r",
+      "attachment": "boot_r"
+    },
+    {
+      "name": "hips",
+      "bone": "pelvis",
+      "attachment": "hips"
+    },
+    {
+      "name": "torso",
+      "bone": "torso",
+      "attachment": "torso"
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "attachment": "head"
+    },
+    {
+      "name": "hair_front",
+      "bone": "hair",
+      "attachment": "hair_front"
+    },
+    {
+      "name": "feather",
+      "bone": "hair",
+      "attachment": "feather"
+    },
+    {
+      "name": "arm_r_upper",
+      "bone": "upper_arm_r",
+      "attachment": "upper_arm_r"
+    },
+    {
+      "name": "arm_r_fore",
+      "bone": "forearm_r",
+      "attachment": "forearm_r"
+    },
+    {
+      "name": "hand_l",
+      "bone": "hand_l",
+      "attachment": "hand_l"
+    },
+    {
+      "name": "hand_r",
+      "bone": "hand_r",
+      "attachment": "hand_grip"
+    },
+    {
+      "name": "collar",
+      "bone": "torso",
+      "attachment": "collar"
+    }
+  ],
+  "skins": {
+    "default": {
+      "rapier": {
+        "rapier_long": {
+          "path": "images/rapier_long",
+          "width": 1638,
+          "height": 205,
+          "x": 188,
+          "y": -2,
+          "scaleX": 0.28,
+          "scaleY": 0.28
+        }
+      },
+      "hair_back": {
+        "hair_back": {
+          "path": "images/hair_back",
+          "width": 342,
+          "height": 317,
+          "x": 20,
+          "y": 35,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "arm_l_upper": {
+        "upper_arm_l": {
+          "path": "images/upper_arm_l",
+          "width": 208,
+          "height": 326,
+          "x": -8,
+          "y": -72,
+          "rotation": 4,
+          "scaleX": 0.43,
+          "scaleY": 0.43
+        }
+      },
+      "arm_l_fore": {
+        "forearm_l": {
+          "path": "images/forearm_l",
+          "width": 191,
+          "height": 323,
+          "x": -2,
+          "y": -72,
+          "scaleX": 0.43,
+          "scaleY": 0.43
+        }
+      },
+      "leg_l": {
+        "boot_l": {
+          "path": "images/boot_l",
+          "width": 249,
+          "height": 373,
+          "y": -86,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "leg_r": {
+        "boot_r": {
+          "path": "images/boot_r",
+          "width": 266,
+          "height": 375,
+          "y": -88,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "hips": {
+        "hips": {
+          "path": "images/hips",
+          "width": 314,
+          "height": 307,
+          "y": 13,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "torso": {
+        "torso": {
+          "path": "images/torso",
+          "width": 283,
+          "height": 344,
+          "y": 10,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "head": {
+        "head": {
+          "path": "images/head",
+          "width": 295,
+          "height": 338,
+          "x": 12,
+          "y": 18,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "hair_front": {
+        "hair_front": {
+          "path": "images/hair_front",
+          "width": 328,
+          "height": 319,
+          "x": 19,
+          "y": 34,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "feather": {
+        "feather": {
+          "path": "images/feather",
+          "width": 310,
+          "height": 306,
+          "x": -52,
+          "y": 92,
+          "rotation": 10,
+          "scaleX": 0.3,
+          "scaleY": 0.3
+        }
+      },
+      "arm_r_upper": {
+        "upper_arm_r": {
+          "path": "images/upper_arm_r",
+          "width": 182,
+          "height": 314,
+          "x": 8,
+          "y": -70,
+          "rotation": -3,
+          "scaleX": 0.43,
+          "scaleY": 0.43
+        }
+      },
+      "arm_r_fore": {
+        "forearm_r": {
+          "path": "images/forearm_r",
+          "width": 171,
+          "height": 316,
+          "x": 1,
+          "y": -70,
+          "scaleX": 0.43,
+          "scaleY": 0.43
+        }
+      },
+      "hand_l": {
+        "hand_l": {
+          "path": "images/hand_l",
+          "width": 187,
+          "height": 333,
+          "x": -3,
+          "y": -39,
+          "scaleX": 0.36,
+          "scaleY": 0.36
+        }
+      },
+      "hand_r": {
+        "hand_grip": {
+          "path": "images/hand_grip",
+          "width": 210,
+          "height": 210,
+          "y": -32,
+          "rotation": -10,
+          "scaleX": 0.35,
+          "scaleY": 0.35
+        }
+      },
+      "collar": {
+        "collar": {
+          "path": "images/collar",
+          "width": 322,
+          "height": 282,
+          "y": 92,
+          "scaleX": 0.31,
+          "scaleY": 0.31
+        }
+      }
+    }
+  },
+  "animations": {
+    "idle": {
+      "bones": {
+        "pelvis": {
+          "translate": [
+            {
+              "time": 0,
+              "x": 0,
+              "y": 0,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "x": 0,
+              "y": 2,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        "torso": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": -0.5,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": 1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": -0.5
+            }
+          ],
+          "translate": [
+            {
+              "time": 0,
+              "x": 0,
+              "y": 0,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "x": 0,
+              "y": 4,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        "head": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": 0.5,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": -1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": 0.5
+            }
+          ]
+        },
+        "upper_arm_l": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": -1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": 1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": -1
+            }
+          ]
+        },
+        "upper_arm_r": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": 1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": -1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": 1
+            }
+          ]
+        },
+        "weapon": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": -1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": 1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": -1
+            }
+          ]
+        },
+        "hair": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": -0.5,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": 0.7,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": -0.5
+            }
+          ]
+        }
+      }
+    }
+  }
+}

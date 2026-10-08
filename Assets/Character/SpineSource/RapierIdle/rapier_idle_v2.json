@@ -1,0 +1,618 @@
+{
+  "skeleton": {
+    "hash": "rapier-idle-layered-v2",
+    "spine": "3.8.99",
+    "x": -360,
+    "y": -40,
+    "width": 720,
+    "height": 700
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "F_CTRL",
+      "parent": "root"
+    },
+    {
+      "name": "F_Hip",
+      "parent": "F_CTRL",
+      "y": 245
+    },
+    {
+      "name": "F_Chest",
+      "parent": "F_Hip",
+      "y": 112,
+      "length": 115
+    },
+    {
+      "name": "F_Neck",
+      "parent": "F_Chest",
+      "y": 112,
+      "length": 55
+    },
+    {
+      "name": "F_Head",
+      "parent": "F_Neck",
+      "x": -8,
+      "y": 50,
+      "length": 75
+    },
+    {
+      "name": "F_Hair",
+      "parent": "F_Head",
+      "length": 55
+    },
+    {
+      "name": "F_L_Leg",
+      "parent": "F_Hip",
+      "x": -47,
+      "y": -22,
+      "rotation": -2,
+      "length": 190
+    },
+    {
+      "name": "F_L_Foot",
+      "parent": "F_L_Leg",
+      "y": -178,
+      "length": 55
+    },
+    {
+      "name": "F_R_Leg",
+      "parent": "F_Hip",
+      "x": 40,
+      "y": -20,
+      "rotation": 2,
+      "length": 190
+    },
+    {
+      "name": "F_R_Foot",
+      "parent": "F_R_Leg",
+      "y": -178,
+      "length": 55
+    },
+    {
+      "name": "F_L_UpperArm",
+      "parent": "F_Chest",
+      "x": -76,
+      "y": 70,
+      "rotation": 8,
+      "length": 100
+    },
+    {
+      "name": "F_L_Forearm",
+      "parent": "F_L_UpperArm",
+      "y": -105,
+      "rotation": -4,
+      "length": 95
+    },
+    {
+      "name": "F_L_Hand",
+      "parent": "F_L_Forearm",
+      "y": -95,
+      "length": 42
+    },
+    {
+      "name": "F_R_UpperArm",
+      "parent": "F_Chest",
+      "x": 78,
+      "y": 70,
+      "rotation": -10,
+      "length": 100
+    },
+    {
+      "name": "F_R_Forearm",
+      "parent": "F_R_UpperArm",
+      "y": -102,
+      "rotation": 8,
+      "length": 95
+    },
+    {
+      "name": "F_R_Hand",
+      "parent": "F_R_Forearm",
+      "y": -92,
+      "length": 42
+    },
+    {
+      "name": "F_R_Weapon",
+      "parent": "F_R_Hand",
+      "rotation": -72,
+      "length": 450
+    }
+  ],
+  "slots": [
+    {
+      "name": "F_Hair_Back",
+      "bone": "F_Hair",
+      "attachment": "hair_back"
+    },
+    {
+      "name": "F_R_Leg",
+      "bone": "F_R_Leg",
+      "attachment": "boot_r"
+    },
+    {
+      "name": "F_L_Leg",
+      "bone": "F_L_Leg",
+      "attachment": "boot_l"
+    },
+    {
+      "name": "F_L_Arm_Upper",
+      "bone": "F_L_UpperArm",
+      "attachment": "upper_arm_l"
+    },
+    {
+      "name": "F_R_Arm_Upper",
+      "bone": "F_R_UpperArm",
+      "attachment": "upper_arm_r"
+    },
+    {
+      "name": "F_Hip",
+      "bone": "F_Hip",
+      "attachment": "hips"
+    },
+    {
+      "name": "F_Chest",
+      "bone": "F_Chest",
+      "attachment": "torso"
+    },
+    {
+      "name": "F_Head",
+      "bone": "F_Head",
+      "attachment": "head"
+    },
+    {
+      "name": "F_Hair_Front",
+      "bone": "F_Hair",
+      "attachment": "hair_front"
+    },
+    {
+      "name": "F_Hair_Feather",
+      "bone": "F_Hair",
+      "attachment": "feather"
+    },
+    {
+      "name": "F_L_Arm_Forearm",
+      "bone": "F_L_Forearm",
+      "attachment": "forearm_l"
+    },
+    {
+      "name": "F_R_Arm_Forearm",
+      "bone": "F_R_Forearm",
+      "attachment": "forearm_r"
+    },
+    {
+      "name": "F_Weapon_Rapier",
+      "bone": "F_R_Weapon",
+      "attachment": "rapier_long"
+    },
+    {
+      "name": "F_L_Hand",
+      "bone": "F_L_Hand",
+      "attachment": "hand_l"
+    },
+    {
+      "name": "F_R_Hand_Grip",
+      "bone": "F_R_Hand",
+      "attachment": "hand_grip"
+    },
+    {
+      "name": "F_Chest_Collar",
+      "bone": "F_Chest",
+      "attachment": "collar"
+    }
+  ],
+  "skins": {
+    "default": {
+      "F_Weapon_Rapier": {
+        "rapier_long": {
+          "path": "images/rapier_long",
+          "width": 1638,
+          "height": 205,
+          "x": 210,
+          "y": 0,
+          "scaleX": 0.32,
+          "scaleY": 0.32
+        }
+      },
+      "F_Hair_Back": {
+        "hair_back": {
+          "path": "images/hair_back",
+          "width": 342,
+          "height": 317,
+          "x": 20,
+          "y": 35,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "F_L_Arm_Upper": {
+        "upper_arm_l": {
+          "path": "images/upper_arm_l",
+          "width": 208,
+          "height": 326,
+          "x": -8,
+          "y": -61,
+          "rotation": 4,
+          "scaleX": 0.38,
+          "scaleY": 0.38
+        }
+      },
+      "F_L_Arm_Forearm": {
+        "forearm_l": {
+          "path": "images/forearm_l",
+          "width": 191,
+          "height": 323,
+          "x": -2,
+          "y": -58,
+          "scaleX": 0.36,
+          "scaleY": 0.36
+        }
+      },
+      "F_L_Leg": {
+        "boot_l": {
+          "path": "images/boot_l",
+          "width": 249,
+          "height": 373,
+          "y": -86,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "F_R_Leg": {
+        "boot_r": {
+          "path": "images/boot_r",
+          "width": 266,
+          "height": 375,
+          "y": -88,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "F_Hip": {
+        "hips": {
+          "path": "images/hips",
+          "width": 314,
+          "height": 307,
+          "y": 13,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "F_Chest": {
+        "torso": {
+          "path": "images/torso",
+          "width": 283,
+          "height": 344,
+          "y": 10,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "F_Head": {
+        "head": {
+          "path": "images/head",
+          "width": 295,
+          "height": 338,
+          "x": 12,
+          "y": 18,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "F_Hair_Front": {
+        "hair_front": {
+          "path": "images/hair_front",
+          "width": 328,
+          "height": 319,
+          "x": 19,
+          "y": 34,
+          "scaleX": 0.5,
+          "scaleY": 0.5
+        }
+      },
+      "F_Hair_Feather": {
+        "feather": {
+          "path": "images/feather",
+          "width": 310,
+          "height": 306,
+          "x": -45,
+          "y": 90,
+          "rotation": 10,
+          "scaleX": 0.24,
+          "scaleY": 0.24
+        }
+      },
+      "F_R_Arm_Upper": {
+        "upper_arm_r": {
+          "path": "images/upper_arm_r",
+          "width": 182,
+          "height": 314,
+          "x": 8,
+          "y": -61,
+          "rotation": -3,
+          "scaleX": 0.38,
+          "scaleY": 0.38
+        }
+      },
+      "F_R_Arm_Forearm": {
+        "forearm_r": {
+          "path": "images/forearm_r",
+          "width": 171,
+          "height": 316,
+          "x": 1,
+          "y": -58,
+          "scaleX": 0.36,
+          "scaleY": 0.36
+        }
+      },
+      "F_L_Hand": {
+        "hand_l": {
+          "path": "images/hand_l",
+          "width": 187,
+          "height": 333,
+          "x": -3,
+          "y": -27,
+          "scaleX": 0.28,
+          "scaleY": 0.28
+        }
+      },
+      "F_R_Hand_Grip": {
+        "hand_grip": {
+          "path": "images/hand_grip",
+          "width": 210,
+          "height": 210,
+          "y": -27,
+          "rotation": -10,
+          "scaleX": 0.28,
+          "scaleY": 0.28
+        }
+      },
+      "F_Chest_Collar": {
+        "collar": {
+          "path": "images/collar",
+          "width": 322,
+          "height": 282,
+          "y": 92,
+          "scaleX": 0.31,
+          "scaleY": 0.31
+        }
+      }
+    }
+  },
+  "animations": {
+    "idle": {
+      "bones": {
+        "F_Hip": {
+          "translate": [
+            {
+              "time": 0,
+              "x": 0,
+              "y": 0,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "x": 0,
+              "y": 2,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        "F_Chest": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": -0.5,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": 1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": -0.5
+            }
+          ],
+          "translate": [
+            {
+              "time": 0,
+              "x": 0,
+              "y": 0,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "x": 0,
+              "y": 4,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        "F_Head": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": 0.5,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": -1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": 0.5
+            }
+          ]
+        },
+        "F_L_UpperArm": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": -1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": 1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": -1
+            }
+          ]
+        },
+        "F_R_UpperArm": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": 1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": -1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": 1
+            }
+          ]
+        },
+        "F_R_Weapon": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": -1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": 1,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": -1
+            }
+          ]
+        },
+        "F_Hair": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": -0.5,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 1,
+              "angle": 0.7,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                1
+              ]
+            },
+            {
+              "time": 2,
+              "angle": -0.5
+            }
+          ]
+        }
+      }
+    }
+  }
+}
