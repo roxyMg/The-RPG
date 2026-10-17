@@ -1,0 +1,72 @@
+PASSED
+PASS room spawns both actors
+PASS initial HP 100 / 240
+PASS both actors stand on floor
+PASS original player attack state runs
+PASS original melee animation event damages elite
+PASS original melee animation returns to movement
+PASS restart advances exactly one round
+PASS restart leaves one actor of each kind
+PASS restart restores both health pools
+PASS restart resets ammunition and reload progress
+PASS counter window move 0
+PASS move 0 damages once: 12
+PASS counter window closes after move 0
+PASS counter window move 1
+PASS move 1 damages once: 16
+PASS counter window closes after move 1
+PASS counter window move 2
+PASS move 2 damages once: 22
+PASS counter window closes after move 2
+PASS restart advances exactly one round
+PASS restart leaves one actor of each kind
+PASS restart restores both health pools
+PASS restart resets ammunition and reload progress
+PASS real player counter query connects
+PASS counter interrupts elite attack
+PASS player starts execution on stunned elite
+PASS execution reserves elite
+PASS execution settles configured damage once
+PASS execution finishes and releases both actors
+PASS restart advances exactly one round
+PASS restart leaves one actor of each kind
+PASS restart restores both health pools
+PASS restart resets ammunition and reload progress
+PASS prepare execution interruption retry
+PASS restart advances exactly one round
+PASS restart leaves one actor of each kind
+PASS restart restores both health pools
+PASS restart resets ammunition and reload progress
+PASS restart during execution releases locks
+PASS existing invulnerability blocks damage
+PASS player death shows defeat
+PASS elite stops attacking dead player
+PASS restart advances exactly one round
+PASS restart leaves one actor of each kind
+PASS restart restores both health pools
+PASS restart resets ammunition and reload progress
+PASS elite death shows victory after corpse cleanup
+PASS restart advances exactly one round
+PASS restart leaves one actor of each kind
+PASS restart restores both health pools
+PASS restart resets ammunition and reload progress
+PASS restart advances exactly one round
+PASS restart leaves one actor of each kind
+PASS restart restores both health pools
+PASS restart resets ammunition and reload progress
+PASS restart advances exactly one round
+PASS restart leaves one actor of each kind
+PASS restart restores both health pools
+PASS restart resets ammunition and reload progress
+PASS restart advances exactly one round
+PASS restart leaves one actor of each kind
+PASS restart restores both health pools
+PASS restart resets ammunition and reload progress
+PASS pause freezes clock
+PASS restart advances exactly one round
+PASS restart leaves one actor of each kind
+PASS restart restores both health pools
+PASS restart resets ammunition and reload progress
+PASS restart from pause resumes clock
+PASS no runtime errors or exceptions
+ERRORS

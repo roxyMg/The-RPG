@@ -6,6 +6,8 @@
 
 ## 当前素材台账
 
+2026-10-17 测试房专用素材：从用户指定的 `D:\BaiduNetdiskDownload\GothicVania-town-files` 选取背景、地砖、屋舍、路灯、箱桶，导入 `Assets/CombatTest/Art`；Point / 16 PPU，无压缩。美术作者 Luis Zuno，原 public domain 许可证随文件保留。玩家与精英引用现有骑士/骷髅，仅生成测试专用 Prefab 与去除旧伤害事件的动画覆盖。详见 [测试版来源和采用关系](../Combat/Combat_Test_Room_v0.1.md)。后续素材来源目录沿用 `D:\BaiduNetdiskDownload`。
+
 | ID / 类别 | 当前路径 | 版本与用途 | 当前状态 | 来源 / 待补信息 | 关联任务 |
 | --- | --- | --- | --- | --- | --- |
 | ART-01 玩家动画 | [Character/Knight](../../Assets/Character/Knight)、[Player_Animations](../../Assets/Animations/Player_Animations)、[Player_A.controller](../../Assets/Animations/Animator_Controllers/Player_A.controller) | 有 Warrior_Sheet-Effect 和移动/战斗片段 | 文件存在；当前实际采用图与 Controller 待核对 | 来源、比例、引用者及正式采用版待补 | DEMO-008、010 |

@@ -1,5 +1,7 @@
 # The RPG · 项目管理入口
 
+**2026-10-17 测试版：** [暮色庭院战斗测试房 v0.1](docs/Combat/Combat_Test_Room_v0.1.md)。独立场景 `Assets/CombatTest/Scenes/CombatTestRoom.unity`，三招精英、胜败与 R 重开；说明中包含基线与安全回退方式。
+
 这是一个 Unity 2D RPG demo。当前 Unity 版本为 **6000.5.7f1**，构建列表中的演示场景是 [SampleScene.unity](Assets/Scenes/SampleScene.unity)。
 
 打开 Unity 项目后加载该场景进入 Play Mode；能否完整运行和构建，以验收记录为准。
