@@ -11,6 +11,9 @@ public class PlayerAiredState : PlayerState
     public override void Update()
     {
        base.Update();
+       // 公共更新已切走时，不再执行旧状态逻辑。
+       if (stateMachine.currentState != this)
+           return;
        // 有水平输入时才覆盖 x 速度；无输入时保留进入空中前的水平惯性。
        if(player.moveInput.x != 0)
           player.SetVelocity(player.moveInput.x * (player.moveSpeed * player.inAirMoveMultiplier), rb.linearVelocity.y);   

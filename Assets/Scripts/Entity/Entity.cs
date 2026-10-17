@@ -68,7 +68,26 @@ public class Entity : MonoBehaviour
 
     public virtual void EntityDeath()
     {
-        
+        // 死亡接管行为前，终止普通击退和排队连击。
+        CancelKnockback();
+
+        if (queuedAttackCo != null)
+        {
+            StopCoroutine(queuedAttackCo);
+            queuedAttackCo = null;
+        }
+    }
+
+    public void CancelKnockback()
+    {
+        if (knockbackCo != null)
+        {
+            StopCoroutine(knockbackCo);
+            knockbackCo = null;
+        }
+
+        // 不清零速度，让死亡状态接管刚体。
+        isKnocked = false;
     }
     public void ReceiveKnockback(Vector2 knockback, float duration)
     {
@@ -87,6 +106,7 @@ public class Entity : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
         isKnocked = false;
+        knockbackCo = null;
     }
 
 

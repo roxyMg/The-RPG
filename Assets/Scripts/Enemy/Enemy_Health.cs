@@ -3,15 +3,39 @@ using UnityEngine;
 public class Enemy_Health : Entity_Health
 {
     private Enemy enemy => GetComponent<Enemy>();
+    private bool receivingExecutionDamage;
 
-    public override void TakeDamage(float damage,Transform damageDealer)//如果damageDealer==Player，enemy.player=damageDealer
+    // 标记本次伤害来源；仅此调用链中的击杀享受处决回弹。
+    public void TakeExecutionDamage(float damage, Transform damageDealer)
     {
-        base.TakeDamage(damage, damageDealer);
+        bool previous = receivingExecutionDamage;
+        receivingExecutionDamage = true;
+        try
+        {
+            TakeDamage(damage, damageDealer, 0);
+        }
+        finally
+        {
+            receivingExecutionDamage = previous;
+        }
+    }
 
-        if(isDead)
-           return;
+    public override void TakeDamage(float damage, Transform damageDealer, int impactLevel)//如果damageDealer==Player，enemy.player=damageDealer
+    {
+        // 仅在本次伤害造成存活到死亡的转换时奖励，重复命中尸体不补弹。
+        if (isDead)
+            return;
+        bool isExecutionKill = receivingExecutionDamage;
+        base.TakeDamage(damage, damageDealer, impactLevel);
 
-        if(damageDealer.GetComponent<Player>() != null)
+        if (isDead)
+        {
+            if (damageDealer != null && damageDealer.GetComponent<Player>() != null)
+                damageDealer.GetComponent<Player_LethalAmmo>()?.RecordKill(isExecutionKill);
+            return;
+        }
+
+        if(damageDealer != null && damageDealer.GetComponent<Player>() != null)
            enemy.TryEnterBattleState(damageDealer);
            
         

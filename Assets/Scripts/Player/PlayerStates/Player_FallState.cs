@@ -10,6 +10,9 @@ public class PlayerFallState : PlayerAiredState
     public override void Update()
     {
         base.Update();
+        // 公共更新已切走时，不再执行旧状态逻辑。
+        if (stateMachine.currentState != this)
+            return;
         // 这两个判断彼此独立；若同一帧同时检测到地面和墙面，WallSlide 会成为最终状态。
         if(player.groundDetected)
            stateMachine.ChangeState(player.idleState);

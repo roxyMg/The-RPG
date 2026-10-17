@@ -11,6 +11,7 @@ public class PlayerDeadState : PlayerState
         base.Enter();
         input.Disable();
         rb.simulated = false;
+        stateMachine.SwitchOffStateMachine();
     }
 
 }

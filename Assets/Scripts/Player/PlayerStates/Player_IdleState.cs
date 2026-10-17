@@ -15,6 +15,9 @@ public class PlayerIdleState : PlayerGroundedState
     public override void Update()
     {
         base.Update();
+        // 公共更新已切走时，不再执行旧状态逻辑。
+        if (stateMachine.currentState != this)
+            return;
 
         // 面朝墙并继续向墙输入时保持 Idle，防止 Idle/Move 在贴墙时来回切换。
         if (player.moveInput.x == player.facingDirection && player.wallDetected)//贴到墙上切换为idle状态

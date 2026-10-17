@@ -18,6 +18,9 @@ public class PlayerJumpAttackState : PlayerState
     public override void Update()
     {
         base.Update();
+        // 公共更新已切走时，不再执行旧状态逻辑。
+        if (stateMachine.currentState != this)
+            return;
 
         if(player.groundDetected && !touchedGround)
         {

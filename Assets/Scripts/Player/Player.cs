@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine;
 
 // 玩家实体：创建全部状态、持有移动参数，并把新输入系统的数据暴露给状态对象。
+[RequireComponent(typeof(Player_PropulsionAmmo), typeof(Entity_Invulnerability), typeof(Player_LethalAmmo))]
+[RequireComponent(typeof(Player_Execution))]
 public class Player : Entity
 { 
     public static event Action OnPlayerDeath;
@@ -21,6 +23,8 @@ public class Player : Entity
     public PlayerAttackState attackState{get; private set;}
     public PlayerJumpAttackState jumpAttackState{get; private set;}
     public PlayerDeadState deadState{get; private set;} 
+    public PlayerExecutionState executionState { get; private set; }
+    public Player_Execution execution { get; private set; }
     public PlayerCounterAttackState counterAttackState{get; private set;}
     
    [Header("Movement details")]
@@ -35,13 +39,23 @@ public class Player : Entity
     public float wallSlideSlowMultiplier = .7f;//华强速度
     [Space]
     // dashDuration 以秒为单位，dashSpeed 为冲刺时的水平速度。
+    [Header("枪铳推进 Dash")]
     public float dashDuration = .25f;
     public float dashSpeed = 20;
+    [Tooltip("Dash 开始后的无敌秒数，生效时间不会超过本次 Dash。")]
+    [Min(0)] public float dashInvulnerabilityDuration = .12f;
+    public Player_LethalAmmo lethalAmmo { get; private set; }
+    public Player_PropulsionAmmo propulsionAmmo { get; private set; }
+    public Entity_Invulnerability invulnerability { get; private set; }
     public Vector2 moveInput{get; private set;}
 
     protected override void Awake()
     {
         base.Awake();
+        execution = GetComponent<Player_Execution>();
+        lethalAmmo = GetComponent<Player_LethalAmmo>();
+        propulsionAmmo = GetComponent<Player_PropulsionAmmo>();
+        invulnerability = GetComponent<Entity_Invulnerability>();
         // 必须先创建 input，因为每个 PlayerState 构造时都会缓存 player.input。
         input = new PlayerInputSet();
         idleState = new PlayerIdleState(this, stateMachine,"Idle");
@@ -56,6 +70,7 @@ public class Player : Entity
         jumpAttackState = new PlayerJumpAttackState(this, stateMachine,"JumpAttack");
         deadState = new PlayerDeadState(this, stateMachine,"Dead");
         counterAttackState = new PlayerCounterAttackState(this,stateMachine,"CounterAttack");
+        executionState = new PlayerExecutionState(this, stateMachine, "Execution");
     }
 
     protected override void Start()
@@ -73,18 +88,77 @@ public class Player : Entity
         stateMachine.ChangeState(deadState);
     }
 
+    public bool TryStartExecution()
+    {
+        if (!isActiveAndEnabled || !stateMachine.canChangeState || !groundDetected || isKnocked ||
+            stateMachine.currentState == deadState || stateMachine.currentState == dashState ||
+            stateMachine.currentState == executionState || execution == null || !execution.TryPrepare())
+            return false;
+        if (queuedAttackCo != null)
+        {
+            StopCoroutine(queuedAttackCo);
+            queuedAttackCo = null;
+        }
+        stateMachine.ChangeState(executionState);
+        return true;
+    }
+
+    public bool TryStartCounterAttack()
+    {
+        if (!isActiveAndEnabled || !stateMachine.canChangeState || isKnocked ||
+            stateMachine.currentState == deadState || stateMachine.currentState == counterAttackState ||
+            stateMachine.currentState == executionState)
+            return false;
+        if (lethalAmmo == null || !lethalAmmo.TryConsume())
+            return false;
+        if (queuedAttackCo != null)
+        {
+            StopCoroutine(queuedAttackCo);
+            queuedAttackCo = null;
+        }
+        stateMachine.ChangeState(counterAttackState);
+        return true;
+    }
+
+    // 普通冲刺和墙跳取消共用入口，检查通过后只消耗一发。
+    public bool TryStartDash(bool allowWhileTouchingWall = false)
+    {
+        if (!isActiveAndEnabled || !stateMachine.canChangeState ||
+            stateMachine.currentState == dashState || stateMachine.currentState == deadState ||
+            stateMachine.currentState == executionState ||
+            isKnocked || (!allowWhileTouchingWall && wallDetected))
+            return false;
+
+        if (!propulsionAmmo.TryConsume())
+            return false;
+
+        // 防止已排队的连击在帧末把 Dash 覆盖回 Attack。
+        if (queuedAttackCo != null)
+        {
+            StopCoroutine(queuedAttackCo);
+            queuedAttackCo = null;
+        }
+        stateMachine.ChangeState(dashState);
+        return true;
+    }
+
     // 连击时把重新进入 Attack 延迟到帧末，让 Animator 有一帧看到 Attack=false。
-    public void EnterAttackStateWithDelay()
+    public void EnterAttackStateWithDelay(Attack_MoveDefinition nextMove = null)
     {
         // 注意：当前 if 没有大括号，只有 StopCoroutine 受条件控制；启动新协程每次都会执行。
         if(queuedAttackCo != null)
            StopCoroutine(queuedAttackCo);
-           queuedAttackCo = StartCoroutine(EnterAttackStateWithDelayCo());
+           queuedAttackCo = StartCoroutine(EnterAttackStateWithDelayCo(nextMove));
     }
-    private IEnumerator EnterAttackStateWithDelayCo()//协程
+    private IEnumerator EnterAttackStateWithDelayCo(Attack_MoveDefinition nextMove)//协程
     {
         // 等到本帧结束后再次进入攻击状态，以触发下一段连击动画。
         yield return new WaitForEndOfFrame();
+        queuedAttackCo = null;
+        // 帧末仅允许仍在攻击中的派生请求继续，避免旧请求覆盖 Dash 或处决。
+        if (!isActiveAndEnabled || !stateMachine.canChangeState || stateMachine.currentState != attackState)
+            yield break;
+        attackState.PrepareNextMove(nextMove);
         stateMachine.ChangeState(attackState);
     }
 
@@ -100,6 +174,7 @@ public class Player : Entity
     {
         // 停用输入动作，防止组件禁用后继续接收输入。
         input.Disable();
+        execution?.EndExecution();
     }
 
 }

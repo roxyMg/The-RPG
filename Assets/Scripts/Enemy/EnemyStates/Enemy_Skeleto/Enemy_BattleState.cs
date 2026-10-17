@@ -26,7 +26,7 @@ public class Enemy_BattleState : EnemyState
         player = enemy.GetPlayerReference();
 
         // 后退只在进入时执行，距离阈值和速度来自 Enemy.cs，并没有单独的后退持续计时。
-        if (ShouldRetreat())
+        if (ShouldRetreat() && !enemy.isKnocked)
         {
             // 直接写 rb 而非 Entity.SetVelocity，避免后退移动方向把角色自动翻成背对玩家。
             rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * -DirectionToPlayer(), enemy.retreatVelocity.y);

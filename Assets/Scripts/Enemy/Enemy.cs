@@ -33,7 +33,6 @@ public class Enemy : Entity
     public float inGameTime;
     [Header("眩晕状态")]
     public float stunnedDuration = 1;
-    public Vector2 stunnedVelocity = new Vector2(7,7);
     protected bool canBeStunned;
 
     // 【巡逻配置】IdleState 使用等待时间，MoveState 使用移动速度，EnemyState 同步动画倍率。
@@ -52,6 +51,14 @@ public class Enemy : Entity
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10;
 
+    public bool IsExecutionLocked { get; private set; }
+    public bool IsStunned => StunnedState != null && stateMachine.currentState == StunnedState;
+    public void SetExecutionLock(bool locked) => IsExecutionLocked = locked;
+    public void ResumeAfterExecution()
+    {
+        if (isActiveAndEnabled && stateMachine.canChangeState && stateMachine.currentState != DeadState)
+            stateMachine.ChangeState(IdleState);
+    }
     public Transform player {get; private set;}
     [Header("死亡属性")]
     public float deathLaunchForce = 15f;
@@ -62,6 +69,8 @@ public class Enemy : Entity
     // 状态逻辑读取 Time.time，不依赖 inGameTime；此字段赋值发生在状态更新之后。
     protected override void Update()
     {
+        if (IsExecutionLocked && stateMachine.currentState != DeadState)
+            return;
         base.Update();
         inGameTime = Time.time;//9.03
     }
@@ -82,8 +91,11 @@ public class Enemy : Entity
 
     public void TryEnterBattleState(Transform player)
     {   
-        if(stateMachine.currentState == DeadState)
-           return;
+        if (IsExecutionLocked || stateMachine.currentState == DeadState ||
+            stateMachine.currentState == StunnedState)
+        {
+            return;
+        }
 
         if(stateMachine.currentState == BattleState || stateMachine.currentState == AttackState)
            return;
@@ -130,7 +142,7 @@ public class Enemy : Entity
         Player.OnPlayerDeath += HandlePlayerDeath;
     }
 
-    private void ODisable()
+    private void OnDisable()
     {
         Player.OnPlayerDeath -= HandlePlayerDeath;
     }

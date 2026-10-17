@@ -9,6 +9,9 @@ public class PlayerMoveState : PlayerGroundedState
     public override void Update()
     {
         base.Update();
+        // 公共更新已切走时，不再执行旧状态逻辑。
+        if (stateMachine.currentState != this)
+            return;
 
         // 注意：当前 if 没有大括号，只有 ChangeState 受条件控制。
         if (player.moveInput.x == 0 || player.wallDetected)

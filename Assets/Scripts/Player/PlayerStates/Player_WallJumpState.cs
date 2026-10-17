@@ -20,6 +20,8 @@ public class PlayerWallJumpState : PlayerState
     public override void Update()
     {
         base.Update();
+        if (stateMachine.currentState != this)
+            return;
 
         // 倒计时结束且再次检测到墙面时，优先回到贴墙下滑。
         wallJumpLockTimer -= Time.deltaTime;
@@ -40,13 +42,7 @@ public class PlayerWallJumpState : PlayerState
     }
     private bool TryCancelWallJump()//尝试取消墙跳。进行dash
     {
-    // 这里不经过 PlayerState.CanDash，可让墙跳状态用冲刺主动取消。
-    if (input.Player.Dash.WasPressedThisFrame())
-       {
-        stateMachine.ChangeState(player.dashState);
-        return true;
-       }
-
-    return false;
+        // 保留墙跳取消入口，但弹药与状态检查仍走统一入口。
+        return input.Player.Dash.WasPressedThisFrame() && player.TryStartDash(true);
     }
 }

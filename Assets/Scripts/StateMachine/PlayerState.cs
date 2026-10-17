@@ -20,8 +20,8 @@ public abstract class PlayerState : EntityState
   {
     base.Update();
     // 冲刺属于通用高优先级输入，所以在每个玩家状态的公共 Update 中检测。
-    if(input.Player.Dash.WasPressedThisFrame() && CanDash())
-      stateMachine.ChangeState(player.dashState);
+    if (input.Player.Dash.WasPressedThisFrame())
+      player.TryStartDash();
     
   }
 
@@ -31,16 +31,6 @@ public abstract class PlayerState : EntityState
   {
     base.UpdateAnimationParameters();
     anim.SetFloat("yVelocity",rb.linearVelocity.y) ;// yVelocity 驱动 Animator 中的上升/下落混合或过渡条件。
-  }
-  private bool CanDash()//能否冲刺
-  {
-    // 当前规则：贴墙时禁止由公共入口冲刺，冲刺状态本身也不能重复进入。
-    if(player.wallDetected)
-       return false;
-    if(stateMachine.currentState == player.dashState)
-       return false;   
-
-    return true;   
   }
 
 }

@@ -16,6 +16,9 @@ public class PlayerJumpState : PlayerAiredState
     public override void Update()
     {
         base.Update();
+        // 公共更新已切走时，不再执行旧状态逻辑。
+        if (stateMachine.currentState != this)
+            return;
         // PlayerAiredState 可能已在本帧切到空中攻击；此时不要再用 Fall 覆盖它。
         if (rb.linearVelocity.y < 0 && stateMachine.currentState != player.jumpAttackState)
             stateMachine.ChangeState(player.fallState);

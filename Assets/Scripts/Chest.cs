@@ -8,6 +8,12 @@ public class Chest : MonoBehaviour , IDamgable
 
     [Header("箱子打开细节")]
     [SerializeField] private Vector2 knockback;
+    // 宝箱接受新伤害入口，继续使用原开箱表现。
+    public void TakeDamage(float damage, Transform damageDealer, int impactLevel)
+    {
+        TakeDamage(damage, damageDealer);
+    }
+
     public void TakeDamage(float damage, Transform damageDealer)
     {
        vFX.PlayOnDamageVFX();

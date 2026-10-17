@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b692bf1c02b4b428e1aba77a992ce18, type: 3}
+  m_Name: Rapier_Move_01
+  m_EditorClassIdentifier: Assembly-CSharp::Attack_MoveDefinition
+  attackDefinition: {fileID: 11400000, guid: 40dde06da9ad4704a9aded237e303638, type: 2}
+  animationIndex: 0
+  normalFollowUp: {fileID: 11400000, guid: 7ebbd9fb42fb479c86b52348a7f97c0e, type: 2}
+  alternativeFollowUp: {fileID: 11400000, guid: b074ee17725442aea56340dbbd8acb72, type: 2}
+  branchWindowEnabled: 1
+  branchWindowStart: 0.2
+  branchWindowEnd: 0.6

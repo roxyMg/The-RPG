@@ -7,6 +7,8 @@ public class PlayerDashState : PlayerState
     private float originalGravityScale;
     // 冲刺方向在 Enter 时确定，冲刺期间不随新的移动输入改变。
     private float dashDirection;
+    // 枪口喷射方向与推进方向相反，供后续特效读取。
+    public Vector2 PropulsionDirection { get; private set; }
     public PlayerDashState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
     }
@@ -21,22 +23,27 @@ public class PlayerDashState : PlayerState
         originalGravityScale = rb.gravityScale;//dash状态重力
         rb.gravityScale = 0;
 
-        dashDirection = player.moveInput.x;
+        dashDirection = player.moveInput.x == 0 ? player.facingDirection : Mathf.Sign(player.moveInput.x);
 
-        if (dashDirection == 0)
-            dashDirection = player.facingDirection;//dash方向根据x输入变化。如果没有则面向方向
+        PropulsionDirection = new Vector2(-dashDirection, 0);
+        player.invulnerability.BeginInvulnerability(Mathf.Min(player.dashInvulnerabilityDuration, player.dashDuration));
+        // 进入时即施加速度，避免等待下一帧才推进。
+        player.SetVelocity(player.dashSpeed * dashDirection, 0);
     }
 
     public override void Update()
     {
         base.Update();
-        // CancelDash 可能切换状态，但当前方法不会立刻 return，后续代码本帧仍会继续执行。
+        // 撞墙取消后，若已切走则停止执行旧冲刺逻辑。
         CancelDash();
- 
-        // 冲刺期间每帧固定水平速度，并把垂直速度固定为 4。
-        player.SetVelocity(player.dashSpeed * dashDirection, 4);
 
-        if(stateTimer < 0)
+        if (stateMachine.currentState != this)
+            return;
+ 
+        // 冲刺期间每帧固定水平速度，并把垂直速度固定为 0。
+        player.SetVelocity(player.dashSpeed * dashDirection, 0);
+
+        if(stateTimer <= 0)
         {
             if(player.groundDetected)
                stateMachine.ChangeState(player.idleState);
@@ -46,6 +53,8 @@ public class PlayerDashState : PlayerState
     }
     public override void Exit()
     {
+        player.invulnerability.EndInvulnerability();
+        PropulsionDirection = Vector2.zero;
         base.Exit();
         // 无论因计时结束还是撞墙退出，都会停止速度并恢复原重力。
         player.SetVelocity(0, 0);

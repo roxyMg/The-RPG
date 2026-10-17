@@ -15,7 +15,9 @@ public class Enemy_StunnedState : EnemyState
         enemy.EnableCounterWindow(false);
         
         stateTimer = enemy.stunnedDuration;
-        rb.linearVelocity = new Vector2(enemy.stunnedVelocity.x * -enemy.facingDirection,enemy.stunnedVelocity.y);
+        // 命中已启动冲击时保留其速度；独立触发失衡则使用冲击 1。
+        if (!enemy.isKnocked)
+            enemy.GetComponent<Entity_HitReaction>()?.ReceiveImpact(1, -enemy.facingDirection);
     }
 
     public override void Update()

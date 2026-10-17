@@ -9,6 +9,9 @@ public class PlayerWallSlideState : PlayerState
     public override void Update()
     {
         base.Update();
+        // 公共更新已切走时，不再执行旧状态逻辑。
+        if (stateMachine.currentState != this)
+            return;
         // 先应用本帧贴墙速度，再判断是否需要离开该状态。
         HandleWallSlide();//切记，一定要调用
 
