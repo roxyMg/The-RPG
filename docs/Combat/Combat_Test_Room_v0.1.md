@@ -4,7 +4,7 @@
 
 ## 打开与操作
 
-- Unity 6000.5.7f1：打开 `Assets/CombatTest/Scenes/CombatTestRoom.unity`，点击 Play。也可使用菜单 `Tools > Combat Test > Open Test Room`。
+- Unity 6000.5.7f1：打开 `Assets/Scenes/CombatTest/Scenes/CombatTestRoom.unity`，点击 Play。也可使用菜单 `Tools > Combat Test > Open Test Room`。
 - Windows 测试包与素材归档：`D:\BaiduNetdiskDownload\CombatTestRoom_v0.1`。构建、运行结果以该目录 `QA` 下的实际记录为准。
 - A / D 移动，空格跳跃，左键普攻，F 派生，右键枪反，Shift 推进冲刺，E 处决。
 - R 或右下角按钮重开。战斗中、死亡后、胜利后和处决中都能重新开始。
@@ -27,7 +27,7 @@
 
 ## 美术与来源
 
-环境采用 `D:\BaiduNetdiskDownload\GothicVania-town-files` 中的像素背景、地砖、屋舍、路灯、木箱与木桶。作者 Luis Zuno / @ansimuz；原包 `public-license.txt` 声明美术为 public domain。许可证副本保留在 `Assets/CombatTest/Art/LICENSE.txt`。本次未采用音乐。
+环境采用 `D:\BaiduNetdiskDownload\GothicVania-town-files` 中的像素背景、地砖、屋舍、路灯、木箱与木桶。作者 Luis Zuno / @ansimuz；原包 `public-license.txt` 声明美术为 public domain。许可证副本保留在 `Assets/Scenes/CombatTest/Art/LICENSE.txt`。本次未采用音乐。
 
 角色复用工程当前骑士与骷髅素材。精英适度放大并使用旧金色，维持项目像素、暗色奇幻风格。环境图使用 Point 过滤、16 PPU、不压缩，不搬迁或替换旧素材。`Marker.png` 是工具生成的纯白单像素，仅作为地面判定提示。
 
@@ -56,7 +56,7 @@ git switch codex/combat-test-room
 
 若同名回退分支已存在，使用 `git switch rollback/combat-test-baseline`。不要用 `reset --hard` 或 `clean` 处理后续工作。ZIP 应解压到新目录查看/恢复，避免直接覆盖现有工程。
 
-测试实现集中于 `Assets/CombatTest`，只引用现有角色/动画/战斗配置。原 `SampleScene`、共享玩法脚本、原动画控制器及正式构建场景列表不因本次功能修改。测试包构建通过显式场景列表，只包含测试房。
+测试实现集中于 `Assets/Scenes/CombatTest`，只引用现有角色/动画/战斗配置。原 `SampleScene`、共享玩法脚本、原动画控制器及正式构建场景列表不因本次功能修改。测试包构建通过显式场景列表，只包含测试房。
 
 ## 验证与重现
 

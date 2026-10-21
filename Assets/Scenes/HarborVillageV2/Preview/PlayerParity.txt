@@ -1,0 +1,11 @@
+PASS Player serialized configuration matches SampleScene
+PASS Rigidbody2D serialized configuration matches SampleScene
+PASS CapsuleCollider2D serialized configuration matches SampleScene
+PASS Player_Combat serialized configuration matches SampleScene
+PASS Player_Execution serialized configuration matches SampleScene
+PASS Player_PropulsionAmmo serialized configuration matches SampleScene
+PASS Player_LethalAmmo serialized configuration matches SampleScene
+PASS Player_ReloadProgress serialized configuration matches SampleScene
+PASS Entity_Health serialized configuration matches SampleScene
+PASS same original AnimatorController, clips, events and child sensors
+moveSpeed=8 jumpForce=12 dashSpeed=20 dashDuration=0.25 gravity=3.5

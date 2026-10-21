@@ -13,7 +13,7 @@ namespace CombatTest.Editor
 {
     public static class CombatTestBuilder
     {
-        public const string Root = "Assets/CombatTest";
+        public const string Root = "Assets/Scenes/CombatTest";
         public const string ScenePath = Root + "/Scenes/CombatTestRoom.unity";
         public const string Delivery = "D:/BaiduNetdiskDownload/CombatTestRoom_v0.1";
 

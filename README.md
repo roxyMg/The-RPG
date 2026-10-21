@@ -1,6 +1,8 @@
 # The RPG · 项目管理入口
 
-**2026-10-17 测试版：** [暮色庭院战斗测试房 v0.1](docs/Combat/Combat_Test_Room_v0.1.md)。独立场景 `Assets/CombatTest/Scenes/CombatTestRoom.unity`，三招精英、胜败与 R 重开；说明中包含基线与安全回退方式。
+**2026-10-19 关卡重做：** [月潮港 · 最后一班船（第二版）](Assets/Scenes/HarborVillageV2/README.md)。打开 `Assets/Scenes/HarborVillage.unity` 后 Play：Q 取凭证、启动绞盘、登船。新版使用连续岸墙与码头，完整沿用项目原角色；也可通过 `Tools > Harbor Village > Play Level` 试玩。
+
+**2026-10-17 测试版：** [暮色庭院战斗测试房 v0.1](docs/Combat/Combat_Test_Room_v0.1.md)。独立场景 `Assets/Scenes/CombatTest/Scenes/CombatTestRoom.unity`，三招精英、胜败与 R 重开；说明中包含基线与安全回退方式。
 
 这是一个 Unity 2D RPG demo。当前 Unity 版本为 **6000.5.7f1**，构建列表中的演示场景是 [SampleScene.unity](Assets/Scenes/SampleScene.unity)。
 
@@ -10,6 +12,7 @@
 
 | 你想了解什么 | 入口 |
 | --- | --- |
+| 用策划视角理解状态机、战斗和关卡原理 | [机制图解阅读版](docs/design/SYSTEMS_ATLAS.html) · [可编辑源文档](docs/design/SYSTEMS_ATLAS.md) |
 | 现在有什么、这版 demo 做到哪里 | [项目总览与模块盘点](docs/project/PROJECT.md) |
 | 下一步做什么、任务是否完成 | [任务看板](docs/project/TASKS.md) |
 | 素材在哪里、哪版在用、是否接入 | [素材台账与目录规范](docs/project/ASSETS.md) |

@@ -1,7 +1,7 @@
 # 战斗测试房 v0.1 · 验收记录
 
 实现与自动回归：2026-10-17；中断后复核与交付：2026-10-18。执行者：Codex。Unity 6000.5.7f1，Windows x64。
-基线：`e4a321d`；测试分支：`codex/combat-test-room`；测试场景：`Assets/CombatTest/Scenes/CombatTestRoom.unity`。
+基线：`e4a321d`；测试分支：`codex/combat-test-room`；测试场景当前路径：`Assets/Scenes/CombatTest/Scenes/CombatTestRoom.unity`。
 
 ## 已通过：Play Mode 自动回归
 
@@ -46,3 +46,11 @@ Windows x64 Development 构建成功，Unity 退出码 0。`build.log` 记录 `C
 此验证仅覆盖独立测试房，不自动代表原 SampleScene 或正式 demo 看板的全部用例通过。三招暂时复用骷髅攻击图；平衡、手感和是否采用仍留给项目负责人检查。
 
 已知显示限制：失败后顶部招式说明可能保留最后一招的状态文本；失败覆盖层正确显示，敌人已停止继续攻击。当前不影响重开与伤害结算。
+
+## 2026-10-18 · 目录整理后的入口检查
+
+当前源码统一使用 `Assets/Scenes/CombatTest`，菜单打开、自动回归与独立构建均从 CombatTestBuilder.ScenePath 获取场景路径。首页、素材台账及测试说明已同步。
+
+静态检查通过：49 个搬迁文件均存在；除工具 Root 常量外，其余 48 个文件内容与已提交测试版本一致（按 Git 换行及 LFS 内容校验），28 个 meta GUID 保留，场景、Prefab 和动画中的引用内容保持一致。旧目录引用已从当前工具及文档中清除。
+
+本次没有重新生成场景、运行 Play Mode 或重新构建；上文 70 项断言和独立包验收属于目录整理前的记录。导入完成后可用 `Tools > Combat Test > Open Test Room` 检查当前编辑器菜单入口。

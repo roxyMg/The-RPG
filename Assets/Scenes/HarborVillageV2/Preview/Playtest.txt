@@ -1,0 +1,46 @@
+PASSED
+PASS uses original project Player, not a scene movement controller
+PASS original movement jump dash gravity values
+PASS original ground sensor works at spawn
+PASS original Animator combat execution installed
+PASS original run speed physically reaches 8; observed=7.984032
+PASS original Space jump moves body upward
+PASS original Shift dash uses one propulsion round
+PASS dash restores original gravity
+PASS continuous walk to 11 actual=(10.74, 5.22, 0.00)
+PASS Q obtains permit without occupying E execution binding
+PASS continuous walk to 33 actual=(32.73, 3.22, 0.00)
+PASS continuous downward ramp reaches inn checkpoint
+PASS continuous walk to 36.3 actual=(36.08, 3.22, 0.00)
+PASS original mouse attack enters original FSM attack state
+PASS original animation event and damage hit cargo crate
+PASS original attack animation returns to locomotion
+PASS original right mouse counter consumes original lethal ammo
+PASS continuous walk to 48 actual=(48.21, 1.22, 0.00)
+PASS winch removes gate collision
+PASS continuous walk to 62 actual=(61.73, 1.22, 0.00)
+PASS continuous main route ends in victory
+PASS restart resets quest and gate
+PASS restart recreates exactly one original player and fresh ammo
+PASS continuous walk to 24 actual=(24.23, 3.22, 0.00)
+PASS continuous walk to 6 actual=(6.21, 5.22, 0.00)
+PASS original motor climbs both continuous slopes
+PASS closed gate physically blocks walking
+PASS no permit cannot unlock gate
+PASS no permit and gate cannot finish
+PASS fall replaces player at checkpoint without stale FSM state
+PASS death restores original healthy player
+PASS original jump reaches first optional platform
+PASS original jump reaches high relic platform
+PASS high relic collected through real jump route
+PASS solid standing surface at 旧船徽章
+PASS solid standing surface at 高处信物
+PASS solid standing surface at 码头纪念物
+PASS three relics count once
+PASS pause disables original input actions
+PASS resume restores original input actions
+PASS restart from pause resets full round
+PASS Tab overview works
+PASS Tab returns to follow
+PASS no runtime errors or exceptions
+ERRORS

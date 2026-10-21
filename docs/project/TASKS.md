@@ -13,6 +13,8 @@
 
 ## 当前看板
 
+2026-10-19 更新：**ENV-001 / 月潮港：最后一班船（第二版）**。负责人 Codex；状态 **待验收（用户试玩）**。入口 `Assets/Scenes/HarborVillage.unity`。第一版素材和地图已替换，四张源图重新生成，主路改成连续岸墙与码头，完整沿用 SampleScene 的 Player、FSM、动画、碰撞体及弹药战斗配置。完成“取凭证 → 开机关 → 登船”、三件收藏、原攻击可击打的货箱、检查点、死亡/落水恢复、暂停与重开。511 个地面采样点通过；44 项 Play Mode 检查通过，含主路往返、实际跳跃收藏、冲刺耗弹、动画伤害，运行错误 0。详见 [场景说明](../../Assets/Scenes/HarborVillageV2/README.md) 与 [测试记录](../../Assets/Scenes/HarborVillageV2/Preview/Playtest.txt)。
+
 2026-10-18 更新：**TEST-001 / 可重开的战斗测试房与三招精英**。负责人 Codex；状态 **待验收（用户试玩）**。实现、70 项自动断言、Windows 独立构建和窗口显示检查完成。范围、验收及回退见 [测试版说明](../Combat/Combat_Test_Room_v0.1.md) 与 [实际验收记录](../Combat/Combat_Test_Room_v0.1_QA.md)。本次不把下列正式 demo 的整体验收自动标记为完成。
 
 | ID | 优先级 | 任务 | 状态 | 依赖 | 验收入口 |
