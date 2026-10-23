@@ -14,7 +14,7 @@ public class Enemy_DeadState : EnemyState
         anim.enabled = false;
 
         rb.gravityScale = 12;
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x * enemy.deathHorizontalMultiplier, enemy.deathLaunchForce);
+        rb.velocity = new Vector2(rb.velocity.x * enemy.deathHorizontalMultiplier, enemy.deathLaunchForce);
 
         stateMachine.SwitchOffStateMachine();
 

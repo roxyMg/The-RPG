@@ -81,11 +81,11 @@ public class Entity : MonoBehaviour
     private IEnumerator KnockbackCo(Vector2 knockback, float duration)
     {
         isKnocked = true;
-        rb.linearVelocity = knockback;
+        rb.velocity = knockback;
 
         yield return new WaitForSeconds(duration);
 
-        rb.linearVelocity = Vector2.zero;
+        rb.velocity = Vector2.zero;
         isKnocked = false;
     }
 
@@ -96,7 +96,7 @@ public class Entity : MonoBehaviour
         if(isKnocked)
            return;
 
-        rb.linearVelocity = new Vector2(xVelocity, yVelocity);
+        rb.velocity = new Vector2(xVelocity, yVelocity);
         HandFlip(xVelocity);
     }
 

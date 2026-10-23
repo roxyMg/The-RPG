@@ -20,7 +20,7 @@ public class Enemy_MoveState : Enemy_GroundState
         base.Update();
         // Enemy.cs 提供 moveSpeed；Entity.SetVelocity 同时设置刚体速度并自动校正面朝方向。
         // 先按本帧朝向设置速度；如果随后翻面，新方向的速度会在下一帧生效。
-        enemy.SetVelocity(enemy.moveSpeed * enemy.facingDirection, rb.linearVelocity.y);
+        enemy.SetVelocity(enemy.moveSpeed * enemy.facingDirection, rb.velocity.y);
         // Entity.cs 每帧先刷新射线结果；检测点放置位置决定 groundDetected 代表脚下还是前方。
         // 无地面或两条墙体射线同时命中时，通过 Entity.Flip 翻转视觉与 facingDirection。
         if (!enemy.groundDetected || enemy.wallDetected)

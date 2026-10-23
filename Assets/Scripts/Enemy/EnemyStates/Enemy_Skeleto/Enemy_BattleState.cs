@@ -29,7 +29,7 @@ public class Enemy_BattleState : EnemyState
         if (ShouldRetreat())
         {
             // 直接写 rb 而非 Entity.SetVelocity，避免后退移动方向把角色自动翻成背对玩家。
-            rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * -DirectionToPlayer(), enemy.retreatVelocity.y);
+            rb.velocity = new Vector2(enemy.retreatVelocity.x * -DirectionToPlayer(), enemy.retreatVelocity.y);
             // 仍通过 Entity.HandFlip 保持面朝玩家，形成“面向目标后退”的表现。
             enemy.HandFlip(DirectionToPlayer());
         }
@@ -53,7 +53,7 @@ public class Enemy_BattleState : EnemyState
         else
             // 即使暂时看不到玩家，只要走到这个分支仍会按缓存目标追击，直到脱战逻辑生效。
             // Entity.SetVelocity 自动转向玩家；这里没有巡逻状态那样的墙面/悬崖掉头判断。
-            enemy.SetVelocity(enemy.battleMoveSpeed * DirectionToPlayer(), rb.linearVelocity.y);
+            enemy.SetVelocity(enemy.battleMoveSpeed * DirectionToPlayer(), rb.velocity.y);
         
     }
 

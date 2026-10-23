@@ -24,7 +24,7 @@ public class PlayerCounterAttackState : PlayerState
     {
         base.Update();
 
-        player.SetVelocity(0, rb.linearVelocity.y);        
+        player.SetVelocity(0, rb.velocity.y);        
 
         if(triggerCalled)
         {

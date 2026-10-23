@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.InferenceEngine;
 using UnityEngine;
 
 public class Entity_VFX : MonoBehaviour

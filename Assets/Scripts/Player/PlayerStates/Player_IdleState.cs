@@ -10,7 +10,7 @@ public class PlayerIdleState : PlayerGroundedState
     {
         base.Enter();
         // 进入待机只清零水平速度，保留当前垂直速度。
-        player.SetVelocity(0, rb.linearVelocity.y);
+        player.SetVelocity(0, rb.velocity.y);
     }
     public override void Update()
     {

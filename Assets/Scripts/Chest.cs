@@ -12,7 +12,7 @@ public class Chest : MonoBehaviour , IDamgable
     {
        vFX.PlayOnDamageVFX();
        anim.SetBool("ChestOpen", true);
-       rb.linearVelocity = knockback;
+       rb.velocity = knockback;
        rb.angularVelocity = Random.Range(-200f,200f);
 
        //还有掉落物没设置

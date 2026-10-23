@@ -15,7 +15,7 @@ public class Enemy_StunnedState : EnemyState
         enemy.EnableCounterWindow(false);
         
         stateTimer = enemy.stunnedDuration;
-        rb.linearVelocity = new Vector2(enemy.stunnedVelocity.x * -enemy.facingDirection,enemy.stunnedVelocity.y);
+        rb.velocity = new Vector2(enemy.stunnedVelocity.x * -enemy.facingDirection,enemy.stunnedVelocity.y);
     }
 
     public override void Update()

@@ -11,13 +11,13 @@ public class PlayerJumpState : PlayerAiredState
     {
        base.Enter(); 
        // 保留进入状态前的水平速度，只把垂直速度设置为 jumpForce。
-       player.SetVelocity(rb.linearVelocity.x, player.jumpForce);
+       player.SetVelocity(rb.velocity.x, player.jumpForce);
     }
     public override void Update()
     {
         base.Update();
         // PlayerAiredState 可能已在本帧切到空中攻击；此时不要再用 Fall 覆盖它。
-        if (rb.linearVelocity.y < 0 && stateMachine.currentState != player.jumpAttackState)
+        if (rb.velocity.y < 0 && stateMachine.currentState != player.jumpAttackState)
             stateMachine.ChangeState(player.fallState);
     }
 

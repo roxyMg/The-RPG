@@ -10,7 +10,7 @@ public override void Update()
     {
         base.Update();
         // 只有正在下落且地面射线未命中时才进入 Fall，避免起跳帧被这里误判。
-        if(rb.linearVelocity.y < 0 && player.groundDetected == false)
+        if(rb.velocity.y < 0 && player.groundDetected == false)
            stateMachine.ChangeState(player.fallState);
         if(input.Player.Jump.WasPressedThisFrame())
            stateMachine.ChangeState(player.jumpState);
