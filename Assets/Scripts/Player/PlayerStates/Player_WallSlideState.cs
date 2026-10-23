@@ -33,8 +33,8 @@ public class PlayerWallSlideState : PlayerState
         // 向下输入时不衰减 y 速度；否则每帧按倍率缩小当前下落速度。
         // x 速度这里直接使用输入值，没有乘 moveSpeed。
         if(player.moveInput.y < 0)
-          player.SetVelocity(player.moveInput.x, rb.linearVelocity.y);
+          player.SetVelocity(player.moveInput.x, rb.velocity.y);
         else
-          player.SetVelocity(player.moveInput.x, rb.linearVelocity.y* player.wallSlideSlowMultiplier);  
+          player.SetVelocity(player.moveInput.x, rb.velocity.y* player.wallSlideSlowMultiplier);  
     }
 }

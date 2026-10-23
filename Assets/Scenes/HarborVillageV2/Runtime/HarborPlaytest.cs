@@ -48,7 +48,7 @@ namespace HarborV2
             Keys();yield return new WaitForSeconds(.2f);
         }
         private void Teleport(Vector2 p)
-        {Player.rb.position=p;Player.transform.position=p;Player.rb.linearVelocity=Vector2.zero;Physics2D.SyncTransforms();}
+        {Player.rb.position=p;Player.transform.position=p;Player.rb.velocity=Vector2.zero;Physics2D.SyncTransforms();}
         private HarborPoint Point(HarborPoint.Kind kind)=>quest.points.First(p=>p.kind==kind);
 
         private IEnumerator Start()
@@ -68,7 +68,7 @@ namespace HarborV2
             Check(Player.anim.runtimeAnimatorController!=null&&Player.GetComponent<Player_Combat>()!=null&&Player.GetComponent<Player_Execution>()!=null,"original Animator combat execution installed");
             Capture("Start.png");
             Keys(Key.D);float runUntil=Time.time+1;float peakRunSpeed=0;
-            while(Time.time<runUntil&&peakRunSpeed<7.7f){yield return new WaitForFixedUpdate();peakRunSpeed=Mathf.Max(peakRunSpeed,Player.rb.linearVelocity.x);}
+            while(Time.time<runUntil&&peakRunSpeed<7.7f){yield return new WaitForFixedUpdate();peakRunSpeed=Mathf.Max(peakRunSpeed,Player.rb.velocity.x);}
             Check(Mathf.Abs(peakRunSpeed-8)<.3f,"original run speed physically reaches 8; observed="+peakRunSpeed);
             Keys();yield return new WaitForSeconds(.2f);
             float before=Player.transform.position.y;
@@ -77,7 +77,7 @@ namespace HarborV2
             yield return new WaitForSeconds(.8f);
             int ammo=Player.propulsionAmmo.CurrentAmmo;
             Keys(Key.LeftShift);yield return null;yield return null;
-            Check(Mathf.Abs(Player.rb.linearVelocity.x)>18&&Player.propulsionAmmo.CurrentAmmo==ammo-1,"original Shift dash uses one propulsion round");
+            Check(Mathf.Abs(Player.rb.velocity.x)>18&&Player.propulsionAmmo.CurrentAmmo==ammo-1,"original Shift dash uses one propulsion round");
             Keys();yield return new WaitForSeconds(.4f);
             Check(Player.rb.gravityScale==3.5f,"dash restores original gravity");
             yield return Walk(11);yield return Tap(Key.Q);
@@ -102,7 +102,7 @@ namespace HarborV2
             Check(quest.Complete&&Time.timeScale==0,"continuous main route ends in victory");
             yield return Tap(Key.R);yield return new WaitForSeconds(.4f);
             Check(!quest.Complete&&!quest.GateOpen&&!quest.HasPermit&&quest.gateCollider.enabled,"restart resets quest and gate");
-            Check(FindObjectsByType<Player>().Length==1&&Player.propulsionAmmo.CurrentAmmo==3,"restart recreates exactly one original player and fresh ammo");
+            Check(FindObjectsByType<Player>(FindObjectsSortMode.None).Length==1&&Player.propulsionAmmo.CurrentAmmo==3,"restart recreates exactly one original player and fresh ammo");
             // Reverse route traverses both uphill transitions with the unchanged motor.
             Teleport(new Vector2(50,1.3f));yield return new WaitForSeconds(.4f);
             yield return Walk(24);yield return Walk(6);

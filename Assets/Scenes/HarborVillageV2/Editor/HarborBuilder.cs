@@ -288,7 +288,7 @@ namespace HarborV2.Editor
                 var hit=Physics2D.RaycastAll(new Vector2(x,Surface(x)+.1f),Vector2.down,.2f,LayerMask.GetMask("Ground")).FirstOrDefault(h=>h.collider==ground);
                 if(hit.collider!=ground||Mathf.Abs(hit.point.y-Surface(x))>.015f)throw new Exception("Ground crack at "+x);
             }
-            foreach(var t in Object.FindObjectsByType<Transform>())if(GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject)>0)throw new Exception("Missing script: "+t.name);
+            foreach(var t in Object.FindObjectsByType<Transform>(FindObjectsSortMode.None))if(GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject)>0)throw new Exception("Missing script: "+t.name);
             File.WriteAllText(Root+"/Preview/GroundValidation.txt","PASS 511 ground ray probes across x=0.125..63.875. No collision gaps.\nPASS no missing scene scripts.\n");
             Debug.Log("HARBOR_V2_STATIC_PASS: 511 ground probes; no gaps");
         }

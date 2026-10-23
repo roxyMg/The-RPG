@@ -174,7 +174,7 @@ public class PlayerAttackState : PlayerState
 
         // 攻击位移窗口结束后只清零水平速度，继续保留重力产生的垂直速度。
         if(attackVelocityTimer < 0)
-           player.SetVelocity(0,rb.linearVelocity.y);
+           player.SetVelocity(0,rb.velocity.y);
     }
     private void ApplyAttackVelocity()
     {   

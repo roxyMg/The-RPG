@@ -28,7 +28,7 @@ public class EnemyState : EntityState
         // 三个参数名称需与 Controller 完全一致；xVelocity 是带正负方向的刚体水平速度。
         anim.SetFloat("BattleAnimSpeedMultiplier", BattleAnimSpeedMultiplier);
         anim.SetFloat("MoveAnimSpeedMultiplier", enemy.MoveAnimSpeedMultiplier); // 普通移动动画倍率来自 Enemy.cs 的 Inspector 配置。
-        anim.SetFloat("xVelocity", rb.linearVelocity.x);
+        anim.SetFloat("xVelocity", rb.velocity.x);
     }
 
 }

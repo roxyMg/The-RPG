@@ -17,7 +17,7 @@ public class PlayerMoveState : PlayerGroundedState
         if (player.moveInput.x == 0 || player.wallDetected)
             stateMachine.ChangeState(player.idleState); 
             // SetVelocity 无论条件是否成立都会在本帧执行。
-            player.SetVelocity(player.moveInput.x * player.moveSpeed, rb.linearVelocity.y);
+            player.SetVelocity(player.moveInput.x * player.moveSpeed, rb.velocity.y);
     }
 
 }

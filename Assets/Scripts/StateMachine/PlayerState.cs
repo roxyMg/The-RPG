@@ -30,7 +30,7 @@ public abstract class PlayerState : EntityState
   public override void UpdateAnimationParameters()
   {
     base.UpdateAnimationParameters();
-    anim.SetFloat("yVelocity",rb.linearVelocity.y) ;// yVelocity 驱动 Animator 中的上升/下落混合或过渡条件。
+    anim.SetFloat("yVelocity",rb.velocity.y) ;// yVelocity 驱动 Animator 中的上升/下落混合或过渡条件。
   }
 
 }

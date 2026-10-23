@@ -58,7 +58,7 @@ public class Player_Execution : MonoBehaviour
     {
         savedGravity = player.rb.gravityScale;
         player.rb.gravityScale = 0;
-        player.rb.linearVelocity = Vector2.zero;
+        player.rb.velocity = Vector2.zero;
         player.invulnerability.BeginActionInvulnerability();
     }
     // 返回 true 表示动作结束或目标已无法结算。
@@ -68,7 +68,7 @@ public class Player_Execution : MonoBehaviour
             return true;
         if (!settled && (target == null || !target.IsReservedBy(player)))
             return true;
-        player.rb.linearVelocity = Vector2.zero;
+        player.rb.velocity = Vector2.zero;
         elapsed += Mathf.Max(0, deltaTime);
         // 先结算再退出，保证大帧跨过两个时点也只结算一次。
         if (!settled && elapsed >= hitTime)
@@ -94,7 +94,7 @@ public class Player_Execution : MonoBehaviour
         if (health == null || !health.IsDead)
         {
             player.rb.gravityScale = savedGravity;
-            player.rb.linearVelocity = Vector2.zero;
+            player.rb.velocity = Vector2.zero;
         }
     }
 }

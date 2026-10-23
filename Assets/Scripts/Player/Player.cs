@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // 玩家实体：创建全部状态、持有移动参数，并把新输入系统的数据暴露给状态对象。
 [RequireComponent(typeof(Player_PropulsionAmmo), typeof(Entity_Invulnerability), typeof(Player_LethalAmmo))]
@@ -165,16 +166,27 @@ public class Player : Entity
     private void OnEnable()
     {
         input.Enable();
-        // performed 持续写入当前二维输入，canceled 在松开时清零。
-        // 当前实现每次启用都会追加匿名回调；对象若反复启用，需要留意重复订阅。
-        input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
-        input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
+        input.Player.Movement.performed += HandleMovementPerformed;
+        input.Player.Movement.canceled += HandleMovementCanceled;
     }
+
     private void OnDisable()
     {
-        // 停用输入动作，防止组件禁用后继续接收输入。
+        input.Player.Movement.performed -= HandleMovementPerformed;
+        input.Player.Movement.canceled -= HandleMovementCanceled;
+        moveInput = Vector2.zero;
         input.Disable();
         execution?.EndExecution();
+    }
+
+    private void HandleMovementPerformed(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }
+
+    private void HandleMovementCanceled(InputAction.CallbackContext context)
+    {
+        moveInput = Vector2.zero;
     }
 
 }

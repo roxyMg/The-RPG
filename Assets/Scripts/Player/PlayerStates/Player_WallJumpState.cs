@@ -34,7 +34,7 @@ public class PlayerWallJumpState : PlayerState
             return;
         
         // 先处理进入下落，再检查贴墙；两个判断独立，贴墙结果可能覆盖 Fall。
-        if(rb.linearVelocity.y < 0)
+        if(rb.velocity.y < 0)
            stateMachine.ChangeState(player.fallState);
 
         if(player.wallDetected)

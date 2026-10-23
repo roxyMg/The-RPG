@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Launch project in Tuanjie",
+            "type": "process",
+            "command": "C:\\Program Files\\Tuanjie 2022.3.61t14\\Editor\\Tuanjie.exe",
+            "args": [
+                "-projectPath",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

@@ -67,7 +67,7 @@ namespace CombatTest
                 Check(room.Elite.CanBeCountered == (move != 2),"counter window move " + move);
                 var bounds = room.Elite.HitBounds(true);
                 room.Player.rb.position = new Vector2(move == 1 ? room.Elite.transform.position.x + room.Elite.facingDirection * 2 : bounds.center.x,1.3f);
-                room.Player.rb.linearVelocity = Vector2.zero;
+                room.Player.rb.velocity = Vector2.zero;
                 float before = room.PlayerHealth.CurrentHealth;
                 yield return WaitPhase(Enemy_TestElite.Phase.Recovery,(Enemy_TestElite.Move)move);
                 float expected = move == 0 ? 12 : move == 1 ? 16 : 22;

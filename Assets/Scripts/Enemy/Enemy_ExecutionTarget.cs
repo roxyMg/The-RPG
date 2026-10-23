@@ -23,7 +23,7 @@ public class Enemy_ExecutionTarget : MonoBehaviour
         owner = executor;
         savedGravity = enemy.rb.gravityScale;
         enemy.CancelKnockback();
-        enemy.rb.linearVelocity = Vector2.zero;
+        enemy.rb.velocity = Vector2.zero;
         enemy.rb.gravityScale = 0;
         enemy.SetExecutionLock(true);
         return true;
@@ -40,7 +40,7 @@ public class Enemy_ExecutionTarget : MonoBehaviour
         if (!health.IsDead)
         {
             enemy.rb.gravityScale = savedGravity;
-            enemy.rb.linearVelocity = Vector2.zero;
+            enemy.rb.velocity = Vector2.zero;
             enemy.ResumeAfterExecution();
         }
     }

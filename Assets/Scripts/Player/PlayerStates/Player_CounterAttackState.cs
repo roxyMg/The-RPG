@@ -27,7 +27,7 @@ public class PlayerCounterAttackState : PlayerState
         if (stateMachine.currentState != this)
             return;
 
-        player.SetVelocity(0, rb.linearVelocity.y);        
+        player.SetVelocity(0, rb.velocity.y);        
 
         if(triggerCalled)
         {

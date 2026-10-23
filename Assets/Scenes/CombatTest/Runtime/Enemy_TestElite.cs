@@ -67,7 +67,7 @@ namespace CombatTest
             if (Target == null || Target.GetComponent<Entity_Health>().IsDead)
             {
                 CloseWarning();
-                SetVelocity(0, rb.linearVelocity.y);
+                SetVelocity(0, rb.velocity.y);
                 return;
             }
             base.Update();
@@ -96,7 +96,7 @@ namespace CombatTest
                 stateMachine.ChangeState(AttackState);
                 return;
             }
-            SetVelocity(Mathf.Abs(dx) > 2 ? Mathf.Sign(dx) * battleMoveSpeed : 0, rb.linearVelocity.y);
+            SetVelocity(Mathf.Abs(dx) > 2 ? Mathf.Sign(dx) * battleMoveSpeed : 0, rb.velocity.y);
         }
 
         private void BeginAttack()
@@ -106,7 +106,7 @@ namespace CombatTest
             lockedDirection = facingDirection;
             lockedOrigin = transform.position;
             hitThisAttack.Clear();
-            SetVelocity(0, rb.linearVelocity.y);
+            SetVelocity(0, rb.velocity.y);
             CurrentPhase = Phase.Windup;
             // The test override clip contains no old AttackTrigger/counter events.
             anim.Play("SkeletonAttack", 0, 0);
@@ -133,7 +133,7 @@ namespace CombatTest
                 GetComponent<Enemy_VFX>().EnableAttackAlert(false);
                 anim.Play("SkeletonAttack", 0, Mathf.Lerp(.34f, .58f, PhaseProgress));
                 if (CurrentMove == Move.Rush && !isKnocked)
-                    SetVelocity(Mathf.Abs(transform.position.x) < arenaHalfWidth - .9f ? lockedDirection * 10 : 0, rb.linearVelocity.y);
+                    SetVelocity(Mathf.Abs(transform.position.x) < arenaHalfWidth - .9f ? lockedDirection * 10 : 0, rb.velocity.y);
                 ShowWarning(true);
                 HitTargets();
             }
@@ -142,7 +142,7 @@ namespace CombatTest
                 CloseWarning();
                 CurrentPhase = Phase.Recovery;
                 PhaseProgress = Mathf.Clamp01((timer - Windup - ActiveTime) / Recovery);
-                SetVelocity(0, rb.linearVelocity.y);
+                SetVelocity(0, rb.velocity.y);
                 anim.Play("SkeletonAttack", 0, Mathf.Lerp(.6f, .99f, PhaseProgress));
                 if (timer >= Windup + ActiveTime + Recovery)
                     stateMachine.ChangeState(BattleState);
@@ -193,7 +193,7 @@ namespace CombatTest
         {
             CloseWarning();
             anim.speed = 1;
-            SetVelocity(0, rb.linearVelocity.y);
+            SetVelocity(0, rb.velocity.y);
             readyAt = Time.time + .35f;
         }
 

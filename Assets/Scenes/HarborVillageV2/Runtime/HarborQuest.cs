@@ -120,7 +120,7 @@ namespace HarborV2
             Relics = Falls = 0; elapsed = gateLift = 0;
             gate.localPosition = gateOrigin; gateCollider.enabled = true; gateVisual.color = Color.white;
             foreach (var point in points) { point.used = false; point.Refresh(); }
-            foreach (var crate in FindObjectsByType<HarborCrate>()) crate.ResetCrate();
+            foreach (var crate in FindObjectsByType<HarborCrate>(FindObjectsSortMode.None)) crate.ResetCrate();
             Checkpoint = spawn; StartCoroutine(ReplacePlayer(spawn));
             Notify("新的航程。Q 交互；移动与战斗使用项目原有操作。", 5);
         }
