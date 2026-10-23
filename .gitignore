@@ -105,3 +105,16 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# Codely CLI workspace (UnityInsight index is ~1GB, contains local tooling config)
+.codely-cli/
+.codelyignore
+
+# Codely agent memory (local project/session notes, keep out of the repo)
+CODELY.md
+
+# IDE-generated solution files (XML solution format, companion to *.sln above)
+*.slnx
+
+# Local runtime verification screen recordings
+/screenshots/
