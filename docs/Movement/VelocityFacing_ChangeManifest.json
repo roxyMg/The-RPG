@@ -1,0 +1,152 @@
+{
+  "task": "MOVE-003",
+  "date": "2026-11-19",
+  "baselineHead": "5a46c8c76b7d6116671984044e394d0e93b33148",
+  "scope": "Player-only velocity/facing separation; Entity and enemies retain existing API",
+  "modified": [
+    {
+      "path": "Assets/Scripts/Player/Player.cs",
+      "beforeSha256": "3d7d86e08e27e2e5bd474a1c47f3cdb4ad17321e59877f4b25ad67ef0df7fb86",
+      "afterSha256": "6700a86355eeddfc75f92f69375afe138d408e7b70877c08fac99d941790767b"
+    },
+    {
+      "path": "Assets/Scripts/Player/Player_MovementController.cs",
+      "beforeSha256": "10f68d70493ae672e9221d4b33c46cab954e2279ddf7b84b3ad4ddb28339a16b",
+      "afterSha256": "89541eb8c33ec3f1214aee52e7ef577dc948381764b1a3023225d7fb5a5d8b0d"
+    },
+    {
+      "path": "Assets/Scripts/Player/MovementFeelValidation.cs",
+      "beforeSha256": "abf422663ade0ebadc8c042fc3306baacc8548af7af16f00565b75ab36f2fef6",
+      "afterSha256": "95ab2f1c85a64ebda3e23d43e84eef80e9907ae1d8efeee509bdf16f6a2705a4"
+    },
+    {
+      "path": "docs/Movement/MovementFeel_v0.1.md",
+      "beforeSha256": "4a8c114d9a18772583cb424cc500def8c321166ca8a5e0d32eb3b140d70b531e",
+      "afterSha256": "4381055c4bfecb88ebd9e9c300a42f09c1496bcb10eb38a62db7b4320cc6eb40"
+    },
+    {
+      "path": "docs/Movement/WallJumpControl_v0.1.md",
+      "beforeSha256": "e14a1617599da8ad45a974d7f9623db12d0acd7c446a868248a2d504be9ae595",
+      "afterSha256": "88fa9389f8ebd5a0e9fcbbe8ac7db48c332d9356afe3a2d6a7adb261a11b2488"
+    },
+    {
+      "path": "docs/project/CHANGELOG.md",
+      "beforeSha256": "a41b9816650570fa9e135d17fd02eb8eff5f555c673acfc1b37c4a10cb1b8666",
+      "afterSha256": "3b35bdf74ee1eea6439f4d5c91d7be0f5852895afc8e2848a62ef9c358d2ee7f"
+    },
+    {
+      "path": "docs/project/TASKS.md",
+      "beforeSha256": "773ed22879a47a352978f3f7c98570e4f7c166e9e4b6d9ef70eee622c313a99a",
+      "afterSha256": "b8a5345175929ae73c8949dfa9ca1c279fd6f53150fc987ef5431c7d9c8b244b"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_IdleState.cs",
+      "beforeSha256": "7fe2e61cfba8fb09e88bf84605c62e9407ac6f8d6adaf91667987342dd0b49ac",
+      "afterSha256": "1a240f470a1992032bf82196fcdac6702e3ea2e03bfd7c0878cf62abcc4aa7f9"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_MoveState.cs",
+      "beforeSha256": "78c8c7b6b3b6d15f419187a7b2347cab6adf673264e4e740223faae27ed8fd1d",
+      "afterSha256": "407cd750e0de1d1ae6630b074320e378a412f29b6b2bdc25178d84ae843e7655"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_AiredState.cs",
+      "beforeSha256": "36d8eb968092e6725dc91ad58cbc91e4fb08c2f508db2cf73e234e1e89fbff3f",
+      "afterSha256": "9401f0886983409bfd221ef6e24225282522faf75c1e462230537a910eedd42b"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_JumpState.cs",
+      "beforeSha256": "13093b7018ae9b72ed68d146acc2c791962712c2e4e9eb93f93553228542a212",
+      "afterSha256": "454bd7337f461e58337fc91ce9b6e7cd1835e7a92aa99331d55f4a3502475390"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_WallSlideState.cs",
+      "beforeSha256": "eb40c984249ffd880a893d4fa3150e4c535dcd915f37661c048a40210456abd4",
+      "afterSha256": "0fad04aec390a7b6619d3379143ddf558e50a0fd2a660c742e36d64d1f3928a3"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_WallJumpState.cs",
+      "beforeSha256": "5ebbbbc1b65ad57dff77bd933e0728ce256960d66b1053b2d471f7821b8144c1",
+      "afterSha256": "ced849625e25177e7eed5e3928c41c18865245e7cd6086fd5c9a0da4cf9a97ee"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_DashState.cs",
+      "beforeSha256": "6d570fe0f0f6b2888c582547bc641934e1b2b06897a77df21116bba2072c9c0b",
+      "afterSha256": "81fc5a037b9b7b7f23c0746ca25687c97c5f4c99d8d9e444d2fff775693de338"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_AttackState.cs",
+      "beforeSha256": "db4e332a1b4d04907bd052778e01dd513a799a59a42866e2ea7873aebeea3d5a",
+      "afterSha256": "865cfa2741a2f0f8d71f58ebecba02a98cc3e05294f4eb31b0cfe7e598fa4111"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_ClimbState.cs",
+      "beforeSha256": "496fe7fa001d768381aa1ce3b7450eacfa22a5c6d74294f1efd18a04117acbfe",
+      "afterSha256": "043261c273b3bc24285f32cf8a5978e1086b8cabc026a691ea22f71565a81ffa"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_HeavyChargeState.cs",
+      "beforeSha256": "e1f91710ecdbe84868a2160f31eab60739a2f2f7330c3ef1d7d3a85e06c6eba4",
+      "afterSha256": "175820c93698e80c66a974b510d9faf292435caeb02efab1ac71776817a859c5"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_HeavyAttackState.cs",
+      "beforeSha256": "303bbf0515da546830b0a054a6b9e15c49ac981c56882ab94828e97e07099314",
+      "afterSha256": "1b178b47721222d69300e11da3ea08248fc182d4ee69da5f68e6e1293f371658"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_CounterAttackState.cs",
+      "beforeSha256": "4da42a9f08bcc4ad8aa22705e4f7950d9390a8f8b2ebfdd6a093be5972c95570",
+      "afterSha256": "28840f58f3e8e9aed9436ac384fc2c241ec916e28c7a6c78629fecc51bc4442a"
+    },
+    {
+      "path": "Assets/Scripts/Player/PlayerStates/Player_JumpAttack.cs",
+      "beforeSha256": "87e9bb1ed2e1ca365330cad10b5f4004f90d1f7819ad158b7315a2cc84385bc1",
+      "afterSha256": "284b4af6f65a2dbf9fdb52cd26d622d98bdb58679d8340456d2e5ab674ab335d"
+    }
+  ],
+  "added": [
+    {
+      "path": "docs/Movement/VelocityFacing_Separation_v0.1.md",
+      "sha256": "6b96e7016c0063c5e29b7f28cfb2ddc1c8d39864a610e8543b650c46b5e10a43"
+    },
+    {
+      "path": "docs/Movement/VelocityFacing_Checks.txt",
+      "sha256": "414d6b6cc154a81e79d630780b89683ee345e87436b8e1925ecc8a113a517db8"
+    },
+    {
+      "path": "docs/Movement/VelocityFacing_MovementRegression.txt",
+      "sha256": "c4d3d631a18aaadd87ffcc69c32f8657e90878c67634045523b87a1189f352d7"
+    },
+    {
+      "path": "docs/Movement/VelocityFacing_HeavyRegression.txt",
+      "sha256": "6bfadcaf0fa4eee0d8fbf892678932a2b1cc5c7284b9357215ee7ce0a208d2f8"
+    },
+    {
+      "path": "docs/Movement/VelocityFacing_ScopeChecks.txt",
+      "sha256": "0a0e72fd12160a809c7902bf485861506fba4c1d4a84bc831db325246831e547"
+    }
+  ],
+  "generatedFiles": [
+    "docs/Movement/VelocityFacing_ChangeManifest.json",
+    "docs/Movement/VelocityFacing_Separation_v0.1_Backup.zip"
+  ],
+  "validation": {
+    "focusedChecks": 62,
+    "movementRegressionChecks": 56,
+    "heavyRegressionChecks": 65,
+    "runtimeErrors": 0,
+    "protectedUnchangedFiles": 694
+  },
+  "publication": {
+    "scope": "documentation-only",
+    "includedFiles": [
+      "docs/Movement/VelocityFacing_Separation_v0.1.md",
+      "docs/Movement/VelocityFacing_ChangeManifest.json"
+    ],
+    "implementationStatus": "local-only; defer until first level is complete",
+    "reportsAndBackupStatus": "local-only; defer until first level is complete",
+    "localUnpushedBaselineCommit": "5a46c8c76b7d6116671984044e394d0e93b33148",
+    "note": "modified and added describe the local implementation inventory, not the files uploaded by this documentation-only commit."
+  }
+}
